@@ -43,6 +43,7 @@ before_script:
   - nohup bash -c "cd kafka && bin/zookeeper-server-start.sh config/zookeeper.properties &"
   - nohup bash -c "cd kafka && bin/kafka-server-start.sh config/server.properties &"
   - sleep 5
+  - java -Djava.security.egd=file:/dev/./urandom -jar build/libs/nakadi.jar
 
 env:
   matrix:
