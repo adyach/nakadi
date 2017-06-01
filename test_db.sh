@@ -1,0 +1,8 @@
+psql -h localhost -U nakadi local_nakadi_db -c "CREATE ROLE nakadi1 PASSWORD 'nakadi1' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"
+psql -h localhost -U nakadi local_nakadi_db -c "CREATE DATABASE local_nakadi_db1;"
+psql -h localhost -U nakadi1 local_nakadi_db -a -f "database/nakadi/10_data/00_create_schema.sql"
+psql -U nakadi -a -f "database/nakadi/10_data/04_tables/01_event_type.sql"
+psql -U nakadi -a -f "database/nakadi/10_data/04_tables/02_subscription.sql"
+psql -U nakadi -a -f "database/nakadi/10_data/04_tables/03_event_type_schema.sql"
+psql -U nakadi -a -f "database/nakadi/10_data/04_tables/04_storage.sql"
+psql -U nakadi -a -f "database/nakadi/10_data/04_tables/05_timeline.sql"
