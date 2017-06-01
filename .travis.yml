@@ -30,7 +30,7 @@ install:
 before_script:
   - ls -la
 #  - find database/nakadi/10_data -type f -name "*.sql" | sort | while read -r filename; do psql -U postgres -a -f "$filename"; done
-  - psql -c 'CREATE ROLE nakadi PASSWORD 'nakadi' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;'
+  - psql -c 'CREATE ROLE nakadi WITH PASSWORD 'nakadi' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;'
   - psql -U nakadi -d nakadi local_nakadi_db -a -f "database/nakadi/10_data/00_create_schema.sql"
   - psql -U nakadi -d nakadi local_nakadi_db -a -f "database/nakadi/10_data/04_tables/01_event_type.sql"
   - psql -U nakadi -d nakadi local_nakadi_db -a -f "database/nakadi/10_data/04_tables/02_subscription.sql"
