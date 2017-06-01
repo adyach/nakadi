@@ -39,6 +39,7 @@ before_script:
   - psql -U nakadi local_nakadi_db -a -f "database/nakadi/10_data/04_tables/04_storage.sql"
   - psql -U nakadi local_nakadi_db -a -f "database/nakadi/10_data/04_tables/05_timeline.sql"
 
+
 env:
   matrix:
     - TEST_SUITE="./gradlew acceptanceTest --stacktrace"
