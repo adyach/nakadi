@@ -32,12 +32,12 @@ before_script:
 #  - find database/nakadi/10_data -type f -name "*.sql" | sort | while read -r filename; do psql -U postgres -a -f "$filename"; done
   - psql -c "CREATE ROLE nakadi PASSWORD 'nakadi' SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN;"
   - psql -c "CREATE DATABASE local_nakadi_db;"
-  - psql -U postgres -a -f "database/nakadi/10_data/00_create_schema.sql"
-  - psql -U postgres -a -f "database/nakadi/10_data/04_tables/01_event_type.sql"
-  - psql -U postgres -a -f "database/nakadi/10_data/04_tables/02_subscription.sql"
-  - psql -U postgres -a -f "database/nakadi/10_data/04_tables/03_event_type_schema.sql"
-  - psql -U postgres -a -f "database/nakadi/10_data/04_tables/04_storage.sql"
-  - psql -U postgres -a -f "database/nakadi/10_data/04_tables/05_timeline.sql"
+  - psql -U nakadi -a -f "database/nakadi/10_data/00_create_schema.sql"
+  - psql -U nakadi -a -f "database/nakadi/10_data/04_tables/01_event_type.sql"
+  - psql -U nakadi -a -f "database/nakadi/10_data/04_tables/02_subscription.sql"
+  - psql -U nakadi -a -f "database/nakadi/10_data/04_tables/03_event_type_schema.sql"
+  - psql -U nakadi -a -f "database/nakadi/10_data/04_tables/04_storage.sql"
+  - psql -U nakadi -a -f "database/nakadi/10_data/04_tables/05_timeline.sql"
 
 env:
   matrix:
