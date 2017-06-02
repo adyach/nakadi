@@ -43,7 +43,7 @@ before_script:
   - nohup bash -c "cd kafka && bin/zookeeper-server-start.sh config/zookeeper.properties &"
   - nohup bash -c "cd kafka && bin/kafka-server-start.sh config/server.properties &"
   - sleep 5
-  - java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=acceptanceTest -Dnakadi.oauth2.mode=OFF -Dnakadi.featuretoggle.default=true -Dtwintip.yaml=file:api/nakadi-event-bus-api.yaml -jar build/libs/nakadi.jar &
+  - nohup java -Djava.security.egd=file:/dev/./urandom -Dspring.profiles.active=acceptanceTest -Dnakadi.oauth2.mode=OFF -Dnakadi.featuretoggle.default=true -Dtwintip.yaml=file:api/nakadi-event-bus-api.yaml -jar build/libs/nakadi.jar &
 
 env:
   matrix:
